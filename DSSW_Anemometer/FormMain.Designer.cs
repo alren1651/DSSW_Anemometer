@@ -169,7 +169,7 @@
             this.DataView_Sensor3.Margin = new System.Windows.Forms.Padding(0);
             this.DataView_Sensor3.Name = "DataView_Sensor3";
             this.DataView_Sensor3.Padding = new System.Windows.Forms.Padding(5);
-            this.DataView_Sensor3.Set_Name = "WindMeter";
+            this.DataView_Sensor3.Set_Name = "Sensor 3";
             this.DataView_Sensor3.Set_Type = "[Ultrasonic]";
             this.DataView_Sensor3.Size = new System.Drawing.Size(340, 170);
             this.DataView_Sensor3.TabIndex = 4;
@@ -180,7 +180,7 @@
             this.DataView_Sensor1.Margin = new System.Windows.Forms.Padding(0);
             this.DataView_Sensor1.Name = "DataView_Sensor1";
             this.DataView_Sensor1.Padding = new System.Windows.Forms.Padding(5);
-            this.DataView_Sensor1.Set_Name = "WindMeter";
+            this.DataView_Sensor1.Set_Name = "Sensor 1";
             this.DataView_Sensor1.Set_Type = "[Ultrasonic]";
             this.DataView_Sensor1.Size = new System.Drawing.Size(340, 170);
             this.DataView_Sensor1.TabIndex = 4;
@@ -191,7 +191,7 @@
             this.DataView_Sensor2.Margin = new System.Windows.Forms.Padding(0);
             this.DataView_Sensor2.Name = "DataView_Sensor2";
             this.DataView_Sensor2.Padding = new System.Windows.Forms.Padding(5);
-            this.DataView_Sensor2.Set_Name = "WindMeter";
+            this.DataView_Sensor2.Set_Name = "Sensor 2";
             this.DataView_Sensor2.Set_Type = "[Ultrasonic]";
             this.DataView_Sensor2.Size = new System.Drawing.Size(340, 170);
             this.DataView_Sensor2.TabIndex = 4;
@@ -202,7 +202,7 @@
             this.DataView_Refer.Margin = new System.Windows.Forms.Padding(0);
             this.DataView_Refer.Name = "DataView_Refer";
             this.DataView_Refer.Padding = new System.Windows.Forms.Padding(5);
-            this.DataView_Refer.Set_Name = "WindMeter";
+            this.DataView_Refer.Set_Name = "Reference";
             this.DataView_Refer.Set_Type = "[Cup]";
             this.DataView_Refer.Size = new System.Drawing.Size(340, 170);
             this.DataView_Refer.TabIndex = 4;
@@ -1320,7 +1320,7 @@
             this.Name = "FormMain";
             this.Padding = new System.Windows.Forms.Padding(0, 64, 0, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "WindMeter Data Logger";
+            this.Text = "Anemometer Data Logger";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.Shown += new System.EventHandler(this.FormMain_Shown);

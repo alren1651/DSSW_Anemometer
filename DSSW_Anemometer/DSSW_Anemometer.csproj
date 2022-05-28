@@ -25,6 +25,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resource_DataView.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\Resource_Main.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource_Main.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Resource_Setting.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -40,6 +45,10 @@
     <EmbeddedResource Update="Resources\Resource_DataView.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource_DataView.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Resource_Main.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_Main.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Resource_Setting.resx">
       <Generator>ResXFileCodeGenerator</Generator>

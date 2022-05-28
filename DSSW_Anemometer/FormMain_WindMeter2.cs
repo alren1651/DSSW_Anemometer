@@ -112,6 +112,7 @@ namespace DSSW_Anemometer
                     // Display Data
                     DataView.RecvDataLog(Txt_Log_ModBUS, 3, $"Rx >> {BitConverter.ToString(RecvBuff_ModBUS).Replace("-", " ")}");
 
+                    //--------------------------------------------------------------------------------------------------------//
                     Array.Clear(RecvBuff_ModBUS, 0, 10);
                     i_READtail_ModBUS = 0;
                 }
@@ -119,6 +120,9 @@ namespace DSSW_Anemometer
                 // if Tx:Read Sensor Values
                 if (i_LenTx_ModBus == 2 && i_READtail_ModBUS > 8)
                 {
+                    // Display Data
+                    DataView.RecvDataLog(Txt_Log_ModBUS, 3, $"Rx >> {BitConverter.ToString(RecvBuff_ModBUS).Replace("-", " ")}");
+
                     //--------------------------------------------------------------------------------------------------------//
                     // PostProcessing
                     Fn_PostProcessing(RecvBuff_ModBUS);
@@ -185,10 +189,6 @@ namespace DSSW_Anemometer
             int i_DeviceID = Convert.ToInt16(RecvBuff[0]);
             string str_WindSpd = (Convert.ToDouble(i_WindSpd) / 100).ToString("F1");
             int i_WindDir = BitConverter.ToInt16(b_Dir, 0);
-
-            //--------------------------------------------------------------------------------------------------------//
-            // Display Data
-            DataView.RecvDataLog(Txt_Log_ModBUS, 3, $"Rx >> Device_{i_DeviceID} | Speed: {str_WindSpd} / Dir: {i_WindDir}");
 
             //--------------------------------------------------------------------------------------------------------//
             // Send & Display MsgBoard
