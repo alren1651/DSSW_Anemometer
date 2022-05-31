@@ -110,6 +110,11 @@ namespace DSSW_Anemometer
                     // Display Data
                     DataView.RecvDataLog(Txt_Log_Serial, 3, $"Rx >> {BitConverter.ToString(RecvBuff_Serial).Replace("-", " ")}");
 
+                    //--------------------------------------------------------------------------------------------------------//
+                    // PostProcessing
+                    Fn_PostProcessing_Serial(RecvBuff_Serial);
+
+                    //--------------------------------------------------------------------------------------------------------//
                     Array.Clear(RecvBuff_Serial, 0, 10);
                     i_READtail_Serial = 0;
                 }
@@ -143,6 +148,38 @@ namespace DSSW_Anemometer
             }
 
             return bytesBuffer;
+        }
+
+        //========================================================================================================//
+        // Display Data & Send to MsgBoard, Insert DB
+        private void Fn_PostProcessing_Serial(byte[] RecvBuff)
+        {
+            //--------------------------------------------------------------------------------------------------------//
+            // Parsing Data - Wind Speed
+            byte[] b_Spd = new byte[2];
+            b_Spd[0] = RecvBuff[3];
+            b_Spd[1] = RecvBuff[4];
+            // If the system architecture is little-endian (that is, little end first), reverse the byte array.
+            if (BitConverter.IsLittleEndian) Array.Reverse(b_Spd);
+            int i_WindSpd = BitConverter.ToInt16(b_Spd, 0) / 2;
+
+            //--------------------------------------------------------------------------------------------------------//
+            // Get Wind Speed
+            string str_WindSpd = (Convert.ToDouble(i_WindSpd) / 10).ToString("F1");
+
+            //--------------------------------------------------------------------------------------------------------//
+            // Display MsgBoard
+            string CurTime = DateTime.Now.ToString("yyyy-MM-dd, HH:mm:ss");
+            DataView_Refer.Set_State = "Ready";
+
+            DataView_Refer.Set_Value = str_WindSpd;
+            DataView_Refer.Set_Dir = "-";
+            DataView_Refer.Set_CurTime = CurTime;
+            DataView_Refer.Set_State = "Run";
+
+            //--------------------------------------------------------------------------------------------------------//
+            // Insert Database
+            InsertDB(4, str_WindSpd);
         }
 
         //========================================================================================================//

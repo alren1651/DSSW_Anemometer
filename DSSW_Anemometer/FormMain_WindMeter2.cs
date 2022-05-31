@@ -125,7 +125,7 @@ namespace DSSW_Anemometer
 
                     //--------------------------------------------------------------------------------------------------------//
                     // PostProcessing
-                    Fn_PostProcessing(RecvBuff_ModBUS);
+                    Fn_PostProcessing_ModBUS(RecvBuff_ModBUS);
 
                     //--------------------------------------------------------------------------------------------------------//
                     Array.Clear(RecvBuff_ModBUS, 0, 10);
@@ -165,7 +165,7 @@ namespace DSSW_Anemometer
 
         //========================================================================================================//
         // Display Data & Send to MsgBoard, Insert DB
-        private void Fn_PostProcessing(byte[] RecvBuff)
+        private void Fn_PostProcessing_ModBUS(byte[] RecvBuff)
         {
             //--------------------------------------------------------------------------------------------------------//
             // Parsing Data - Wind Speed
@@ -174,8 +174,8 @@ namespace DSSW_Anemometer
             b_Spd[1] = RecvBuff[4];
             // If the system architecture is little-endian (that is, little end first), reverse the byte array.
             if (BitConverter.IsLittleEndian) Array.Reverse(b_Spd);
-
             int i_WindSpd = BitConverter.ToInt16(b_Spd, 0);
+
             //--------------------------------------------------------------------------------------------------------//
             // Parsing Data - Wind Direction
             byte[] b_Dir = new byte[2];

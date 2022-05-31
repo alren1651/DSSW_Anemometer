@@ -251,11 +251,11 @@ namespace DSSW_Anemometer
             ReadTimer.Interval = interv;
 
             DataView.SystemLog(Lst_Log_System, "Normal", $"Start Auto-Repeat...");
-            //Fn_Serial_Read(1);
-            Fn_ModBUS_Read(1);
+            Fn_Serial_Read(1);
+            //Fn_ModBUS_Read(1);
 
             // System.Timers.Timer
-            ReqCnt = 3;
+            ReqCnt = 2;
             ReadTimer.Start();
 
             //---------------------------------------------------------------------//
@@ -286,7 +286,7 @@ namespace DSSW_Anemometer
 
         private void ReadTimer_Work()
         {
-            if (ReqCnt == 5) ReqCnt = 2;
+            if (ReqCnt == 5) ReqCnt = 1;
 
             // 설정된 TimeInterval 간격으로 풍속계 센서 풍속 & 풍향 확인
             if (ReqCnt == 1)
